@@ -2,24 +2,16 @@ import React, { useState, useEffect } from 'react'
 // import Demo from './demo/Demo'
 // import Haaaa from './immer/immer'
 // import Paper from './paper/paper'
-import All from './all'
+import Single from './single'
 
 const nodeObj = {
   // Demo,
   // Haaaa,
   // Paper,
-  All
+  Single
 }
 
 export default function Index() {
-  const [flag, setFlag] = useState(true)
-
-  useEffect(() => {
-    setTimeout(() => {
-      setFlag(false)
-    }, 3000)
-  }, [flag])
-
   // let ShowNode = Demo
   // if (!flag) ShowNode = Haaaa
 

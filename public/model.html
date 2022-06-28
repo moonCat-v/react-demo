@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <button onclick="hanldleClick('block')">显示</button>
+    <button onclick="hanldleClick('none')">隐藏</button>
+    <div id="list">222222</div>
+  </div>
+
+  <script>
+
+    const single = (fn) => { // 单例
+      let instance;
+
+      return function(...res) {
+        if (!instance) instance = fn.apply(this, res);
+        return instance;
+      }
+    }
+
+    const render = single(function() { // 绑定事件函数
+      console.log('绑定事件');  // 只会执行一次
+      document.getElementById('list').onclick = function() {
+        console.log('click');
+      }
+      return true;
+    });
+
+    render();
+    render();
+    render();
+    render();
+
+
+    // function creatObj() { // 动态创建元素对象
+    //   const dom = document.createElement('div');
+    //   dom.innerText = '我是展示的内容';
+    //   dom.style.display = 'none';
+    //   document.body.appendChild(dom);
+    //   return dom;
+    // }
+    
+    // const singleDom = single(creatObj);
+
+    // function hanldleClick (data) { // 响应点击事件
+    //   const dom = singleDom();
+    //   dom.style.display = data;
+    // }
+
+  </script>
+</body>
+</html>
