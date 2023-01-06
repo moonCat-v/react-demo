@@ -1,37 +1,21 @@
-import React, { useState, useEffect } from 'react'
-// import Demo from './demo/Demo'
-// import Haaaa from './immer/immer'
-// import Paper from './paper/paper'
-import All from './all'
+import React from 'react';
 
-const nodeObj = {
-  // Demo,
-  // Haaaa,
-  // Paper,
-  All
-}
+import DragEvent from './components/dragEvent';
+import Multiview from './components/multiview/index';
+
+const nodeMap = {
+  DragEvent,
+  Multiview,
+};
 
 export default function Index() {
-  const [flag, setFlag] = useState(true)
+  const queryPrames = window.location.href.split('?')[1];
 
-  useEffect(() => {
-    setTimeout(() => {
-      setFlag(false)
-    }, 3000)
-  }, [flag])
-
-  // let ShowNode = Demo
-  // if (!flag) ShowNode = Haaaa
+  const Component = nodeMap[queryPrames] || DragEvent;
 
   return (
     <div>
-      {/* {ShowNode} */}
-      {/* <ShowNode className='22222' /> */}
-      {/* <Demo></Demo> */}
-      {/* <Immer></Immer> */}
-
-      {/* 循环渲染组件 */}
-      {Object.values(nodeObj).map((Key, index) => <Key key={index} />)}
+      <Component />
     </div>
-  )
+  );
 }
