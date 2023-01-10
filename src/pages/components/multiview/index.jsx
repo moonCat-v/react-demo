@@ -17,13 +17,13 @@ export default function multiview() {
   return (
     <div className="view-wrap">
       <div className="view-button-wrap">
-        {Object.keys(viewerLayout).map((item) => (
+        {Object.entries(viewerLayout).map(([key, value]) => (
           <button
             style={{ marginLeft: '10px' }}
-            onClick={() => handleClcik(item)}
-            key={item}
+            onClick={() => handleClcik(key)}
+            key={key}
           >
-            {item}
+            {value.label}
           </button>
         ))}
       </div>
