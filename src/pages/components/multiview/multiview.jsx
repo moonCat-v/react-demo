@@ -6,6 +6,7 @@ export default function multiview(props) {
   const handleStyleData = (divisor, dividend) =>
     (divisor / dividend) * 100 + '%';
 
+  // 计算当前视图位置和大小
   const style = useMemo(() => {
     const { column, row } = layout;
     const { height, left, top, width } = grid;
@@ -20,6 +21,7 @@ export default function multiview(props) {
 
   return (
     <div className="multiview-wrap" style={{ ...style }}>
+      {/* 渲染索要展示的内容 */}
       {children}
     </div>
   );

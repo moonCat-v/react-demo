@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from 'react';
+// 引入定义的视图数据
 import { viewerLayout } from '../../../contants/index';
+// 引入抽出的视图组件
 import Multiview from './multiview';
 import './multiview.less';
 
@@ -10,6 +12,7 @@ export default function multiview() {
     setCurrentLay(key);
   };
 
+  // 获取当前视图的布局数据
   const { layout, grids = [] } = useMemo(() => {
     return viewerLayout[currentLay];
   }, [currentLay]);
@@ -28,6 +31,7 @@ export default function multiview() {
         ))}
       </div>
 
+      {/* 根据数据渲染所有视图 */}
       <div className="view-content-wrap">
         {grids.map((gridItem, index) => {
           return (
